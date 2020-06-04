@@ -149,4 +149,3 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
