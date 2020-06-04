@@ -1,2 +1,4 @@
 # Project exclude paths
 /venv/
+__pychache__
+local_settings.py
