@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'yeun=o3@4=4r&m+frc3&%1+6^!s&ct*1%5i+^d@k&lv@1p_*q_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -145,3 +145,8 @@ except ImportError:
     pass
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+DEBUG = False
+
+ALLOWED_HOSTS = ["*"]
