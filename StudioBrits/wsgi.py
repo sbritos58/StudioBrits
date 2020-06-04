@@ -15,6 +15,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'StudioBrits.settings')
 
 application = get_wsgi_application()
 
+from whitenoise import WhiteNoise
 
-from whitenoise.django import DjangoWhiteNoise
-application = DjangoWhiteNoise(application)
+application = WhiteNoise(application, root='/path/to/static/files')
+application.add_files('/path/to/more/static/files', prefix='more-files/')
