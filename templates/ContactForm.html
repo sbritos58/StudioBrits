@@ -2,21 +2,7 @@
 {% load widget_tweaks %}
 {% block head %}
 
-    <style>
-.loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-    </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 {% endblock %}
 <!-- ======= Contact Section ======= -->
@@ -89,25 +75,16 @@
         </div>
 
     </div>
+
 </section><!-- End Contact Section -->
 
 <script type="application/javascript">
     $("#formulario").on("submit", function (e) {
         var parameters = $(this).serializeArray();
         Swal.fire({
-            title: '<strong>Aguarde por favor</strong>',
-            html:
-                "<div class="loader"></div>"
-            showCloseButton: true,
-            showCancelButton: true,
-            focusConfirm: false,
-            confirmButtonText:
-                '<i class="fa fa-thumbs-up"></i> Great!',
-            confirmButtonAriaLabel: 'Thumbs up, great!',
-            cancelButtonText:
-                '<i class="fa fa-thumbs-down"></i>',
-            cancelButtonAriaLabel: 'Thumbs down'
-        })
+            title: '<strong>Aguarde mientras procesamos su formulario</strong>',
+            icon: 'info',
+        });
         $.ajax({
             url: window.location.pathname,
             type: "POST",
@@ -121,6 +98,7 @@
                 text: 'Consulta realizada correctamente',
                 icon: 'success',
             });
+            cargar.style.display = "none"
 
         }).fail(function (data) {
             Swal.fire({
