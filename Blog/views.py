@@ -93,15 +93,9 @@ class CrearFormularioContacto(CreateView):
                     to=[request.POST["email"], "info@StudioBrits.com"],
 
                 )
-
-                try:
-                    email_message.content_subtype = 'html'
-                    email_message.send()
-                    print(email)
-                except Exception as e:
-                    print("Entre en el except")
-                    print(e)
-
+                email_message.content_subtype = 'html'
+                email_message.send()
+                print(email)
                 form.save()
             else:
                 data = form.errors
