@@ -78,7 +78,7 @@ class CrearFormularioContacto(CreateView):
                 data["nombre_completo"] = request.POST["nombre_completo"]
                 data["descripcion"] = request.POST["descripcion"]
                 data["email"] = request.POST["email"]
-
+                print("Entre en coso")
                 #envio de email
                 email = EmailMessage(
                     "StudioBrits",
@@ -88,10 +88,12 @@ class CrearFormularioContacto(CreateView):
                     reply_to=[data["email"]]
                 )
                 try:
+                    print("Entre arriba del todo try")
                     email.send()
                     print("Envie el email creo")
                     print(email)
                 except Exception as e:
+                    print("Entre en el except")
                     print(e)
 
                 form.save()
