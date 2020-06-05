@@ -114,13 +114,14 @@
         </div>
 
     </div>
-    <div id="preloader_3"></div>
+    <div id="preloader_3" style="display: none;"></div>
 </section><!-- End Contact Section -->
 
 <script type="application/javascript">
     $("#formulario").on("submit", function (e) {
         var parameters = $(this).serializeArray();
-
+        var cargar = document.getElementById("preloader_3");
+        cargar.style.display = "block"
         $.ajax({
             url: window.location.pathname,
             type: "POST",
@@ -134,6 +135,7 @@
                 text: 'Consulta realizada correctamente',
                 icon: 'success',
             });
+            cargar.style.display = "Block"
 
         }).fail(function (data) {
             Swal.fire({
