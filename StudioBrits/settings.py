@@ -127,9 +127,9 @@ STATICFILES_DIRS = (BASE_DIR, 'static')
 
 STATIC_MEDIA = '/media/'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
-EMAIL_HOST = "authsmtp.securemail.pro"
+EMAIL_HOST = "ssl://authsmtp.securemail.pro"
 EMAIL_HOST_USER = "info@studiobrits.com"
 EMAIL_HOST_PASSWORD = "Penenayger5"
 EMAIL_PORT = 465
-DEFAULT_FROM_EMAIL = "info@studiobrits.com"
