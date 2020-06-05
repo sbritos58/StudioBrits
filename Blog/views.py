@@ -79,24 +79,11 @@ class CrearFormularioContacto(CreateView):
                 data["nombre_completo"] = request.POST["nombre_completo"]
                 data["descripcion"] = request.POST["descripcion"]
                 data["email"] = request.POST["email"]
-
-                body = render_to_string(
-                    'email_content_cliente.html',{
-                        "nombre":request.POST["nombre_completo"],
-                        "descripcion": request.POST["descripcion"],
-                        "email": request.POST["email"],
-                    },
-                )
-
-                email_message = EmailMessage(
-                    subject='Consulta realizada correctamente',
-                    body=body,
-                    from_email=email,
-                    to=[request.POST["email"],"info@StudioBrits.com"],
-
-                )
-                email_message.content_subtype = 'html'
-                email_message.send()
+                emailRem = = request.POST["email"]
+                asunto = "Mensaje desde el mail info"
+                mensaje = request.POST["descripcion"]
+                email = EmailMessage(asunto,mensaje,to=["info@studiobrits.com",emailRem])
+                email.send()
                 form.save()
             else:
                 data = form.errors
