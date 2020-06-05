@@ -132,5 +132,5 @@ EMAIL_HOST = "authsmpt.securemail.pro"
 EMAIL_HOST_USER = "info@studiobrits.com"
 EMAIL_HOST_PASSWORD = "Penenayger5"
 EMAIL_PORT = 465
-
+SERVER_EMAIL="info@studiobrits.com"
 DEFAULT_FROM_EMAIL = "info@studiobrits.com"
