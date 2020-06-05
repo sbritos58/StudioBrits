@@ -79,7 +79,7 @@ class CrearFormularioContacto(CreateView):
                 data["nombre_completo"] = request.POST["nombre_completo"]
                 data["descripcion"] = request.POST["descripcion"]
                 data["email"] = request.POST["email"]
-                emailRem = = request.POST["email"]
+                emailRem = request.POST["email"]
                 asunto = "Mensaje desde el mail info"
                 mensaje = request.POST["descripcion"]
                 email = EmailMessage(asunto,mensaje,to=["info@studiobrits.com",emailRem])
