@@ -127,7 +127,7 @@ STATICFILES_DIRS = (BASE_DIR, 'static')
 
 STATIC_MEDIA = '/media/'
 
-EMAIL_HOST = "authsmpt.securemail.pro"
+EMAIL_HOST = "webmailsmtp.register.it"
 EMAIL_HOST_USER = "info@studiobrits.com"
 EMAIL_HOST_PASSWORD = "Penenayger5"
-EMAIL_PORT = 465
+EMAIL_PORT = 25
