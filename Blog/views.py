@@ -85,7 +85,7 @@ class CrearFormularioContacto(CreateView):
                     "Somos nosotros",
                     "info@studiobrits.com",
                     ["s.britos@hotmail.com"],
-                    reply_to=[data["email"]]
+                    reply_to=["s.britos@hotmail.com"]
                 )
                 try:
                     print("Entre arriba del todo try")
