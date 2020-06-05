@@ -23,7 +23,7 @@ SECRET_KEY = 'yeun=o3@4=4r&m+frc3&%1+6^!s&ct*1%5i+^d@k&lv@1p_*q_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ["http://www.studiobrits.com/"]
+ALLOWED_HOSTS = ["*"]
 
 DEBUG = False
 # Application definition
@@ -131,3 +131,4 @@ EMAIL_HOST = "authsmpt.securemail.pro"
 EMAIL_HOST_USER = "info@studiobrits.com"
 EMAIL_HOST_PASSWORD = "Penenayger5"
 EMAIL_PORT = 465
+
