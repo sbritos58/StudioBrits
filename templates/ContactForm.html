@@ -98,6 +98,11 @@
                 icon: 'error',
             });
         }).always(function (data) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Se generó algun error en su consulta, recargue la página e intente Nuevamente',
+                icon: 'error',
+            });
             document.getElementById("id_nombre_completo").value = "";
             document.getElementById("id_email").value = "";
             document.getElementById("id_descripcion").value = "";
