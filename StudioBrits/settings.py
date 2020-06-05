@@ -133,3 +133,5 @@ EMAIL_HOST = 'authsmtp.securemail.pro'
 EMAIL_HOST_USER = 'info@studiobrits.com'
 EMAIL_HOST_PASSWORD = 'Penenayger5'
 EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
