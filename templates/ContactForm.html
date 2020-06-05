@@ -132,28 +132,38 @@
         </div>
 
     </div>
+    <div id="preloader_3" style="display: none;"></div>
 </section><!-- End Contact Section -->
 
 <script type="application/javascript">
     $("#formulario").on("submit", function (e) {
         var parameters = $(this).serializeArray();
-
-        var newDiv = document.createElement("div");
-        newDiv.setAttribute("id","preloader_3");
-
+        var cargar = document.getElementById("preloader_3");
         cargar.style.display = "block"
+
+        Swal.fire({
+            title: '<strong>HTML <u>example</u></strong>',
+            icon: 'info',
+            html:
+                'You can use <b>bold text</b>, ' +
+                '<a href="//sweetalert2.github.io">links</a> ' +
+                'and other HTML tags',
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText:
+                '<i class="fa fa-thumbs-up"></i> Great!',
+            confirmButtonAriaLabel: 'Thumbs up, great!',
+            cancelButtonText:
+                '<i class="fa fa-thumbs-down"></i>',
+            cancelButtonAriaLabel: 'Thumbs down'
+        })
         $.ajax({
             url: window.location.pathname,
             type: "POST",
             data: parameters,
             dataType: "json"
         }).done(function (data) {
-
-            Swal.fire({
-                title:"Aguarde",
-                html:"<div id='preloader_3'></div>"
-            })
-            cargar.style.display = "none";
             Swal.fire({
                 showConfirmButton: false,
                 title: 'Mensaje!',
@@ -161,7 +171,7 @@
                 text: 'Consulta realizada correctamente',
                 icon: 'success',
             });
-
+            cargar.style.display = "none"
 
         }).fail(function (data) {
             Swal.fire({
