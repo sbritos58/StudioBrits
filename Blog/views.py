@@ -84,7 +84,7 @@ class CrearFormularioContacto(CreateView):
                     "Gracias por contactar con StudioBrits",
                     "Gracias por ponerse en contacto con StudioBrits, estamos procesando su solicitud " + '"' + data["descripcion"] + '"' + ", en breve nos pondremos en contacto con usted. Gracias",
                     "info@studiobrits.com",
-                    ["info@studiobrits.com"],
+                    ["info@studiobrits.com",email],
                     reply_to=[data["email"]]
                 )
                 try:
