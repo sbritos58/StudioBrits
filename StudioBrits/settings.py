@@ -40,8 +40,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'StudioBrits.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd234bqktkllc4a',
+        'USER':'wzeohjwzjddpoe',
+        'PASSWORD':'bbe16be0ff6dbdb3c52f086d3361c0c6f49c9f0e22ed0680c3e3103d34b24c40',
+        'HOST':"ec2-50-17-90-177.compute-1.amazonaws.com",
+        'PORT':5432,
     }
 }
 
@@ -126,17 +130,5 @@ EMAIL_HOST = "authsmpt.securemail.pro"
 EMAIL_HOST_USER = "info@studiobrits.com"
 EMAIL_HOST_PASSWORD = "Penenayger5"
 EMAIL_PORT = 465
-
-import dj_database_url
-
-DATABASES['default'] = dj_database_url.config()
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
