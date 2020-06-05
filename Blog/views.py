@@ -78,24 +78,24 @@ class CrearFormularioContacto(CreateView):
                 data["nombre_completo"] = request.POST["nombre_completo"]
                 data["descripcion"] = request.POST["descripcion"]
                 data["email"] = request.POST["email"]
-                body = render_to_string(
-                    'email_content_cliente.html', {
-                        "nombre": request.POST["nombre_completo"],
-                        "descripcion": request.POST["descripcion"],
-                        "email": request.POST["email"],
-                    },
+                print("Entre en coso")
+                #envio de email
+                email = EmailMessage(
+                    "StudioBrits",
+                    "Somos nosotros",
+                    "info@studiobrits.com",
+                    ["s.britos@hotmail.com"],
+                    reply_to=["s.britos@hotmail.com"]
                 )
+                try:
+                    print("Entre arriba del todo try")
+                    email.send()
+                    print("Envie el email creo")
+                    print(email)
+                except Exception as e:
+                    print("Entre en el except")
+                    print(e)
 
-                email_message = EmailMessage(
-                    subject='Consulta realizada correctamente',
-                    body=body,
-                    from_email=email,
-                    to=[request.POST["email"], "info@StudioBrits.com"],
-
-                )
-                email_message.content_subtype = 'html'
-                email_message.send()
-                print(email)
                 form.save()
             else:
                 data = form.errors
