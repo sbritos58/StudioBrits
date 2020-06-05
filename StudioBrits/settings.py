@@ -23,7 +23,7 @@ SECRET_KEY = 'yeun=o3@4=4r&m+frc3&%1+6^!s&ct*1%5i+^d@k&lv@1p_*q_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["http://www.studiobrits.com/"]
 
 DEBUG = False
 # Application definition
@@ -121,16 +121,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/static')
 
 STATICFILES_DIRS = (BASE_DIR,'static')
 
 STATIC_MEDIA = '/media/'
 
-EMAIL_USE_TLS = True
 EMAIL_HOST = "authsmpt.securemail.pro"
 EMAIL_HOST_USER = "info@studiobrits.com"
 EMAIL_HOST_PASSWORD = "Penenayger5"
 EMAIL_PORT = 465
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
