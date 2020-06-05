@@ -81,11 +81,10 @@ class CrearFormularioContacto(CreateView):
                 print("Entre en coso")
                 #envio de email
                 email = EmailMessage(
-                    "StudioBrits",
-                    "Somos nosotros",
+                    "Gracias por contactar con StudioBrits",
+                    "Gracias por ponerse en contacto con StudioBrits, estamos procesando su solicitud " + '"' + data["descripcion"] + '"' + ", en breve nos pondremos en contacto con usted. Gracias",
                     "info@studiobrits.com",
-                    ["s.britos@hotmail.com"],
-                    reply_to=[data["email"]]
+                    reply_to=[data["email"],"info@studiobrits.com"]
                 )
                 try:
                     print("Entre arriba del todo try")
