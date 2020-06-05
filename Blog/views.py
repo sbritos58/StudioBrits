@@ -71,7 +71,6 @@ class CrearFormularioContacto(CreateView):
         return reverse_lazy("index")
 
     def post(self, request, *args, **kwargs):
-        print(request.POST)
         data = {}
         try:
             form = self.get_form()

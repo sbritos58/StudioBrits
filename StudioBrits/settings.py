@@ -78,10 +78,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd234bqktkllc4a',
-        'USER':'wzeohjwzjddpoe',
-        'PASSWORD':'bbe16be0ff6dbdb3c52f086d3361c0c6f49c9f0e22ed0680c3e3103d34b24c40',
-        'HOST':"ec2-50-17-90-177.compute-1.amazonaws.com",
-        'PORT':5432,
+        'USER': 'wzeohjwzjddpoe',
+        'PASSWORD': 'bbe16be0ff6dbdb3c52f086d3361c0c6f49c9f0e22ed0680c3e3103d34b24c40',
+        'HOST': "ec2-50-17-90-177.compute-1.amazonaws.com",
+        'PORT': 5432,
     }
 }
 
@@ -123,13 +123,14 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = (BASE_DIR,'static')
+STATICFILES_DIRS = (BASE_DIR, 'static')
 
 STATIC_MEDIA = '/media/'
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = "authsmpt.securemail.pro"
 EMAIL_HOST_USER = "info@studiobrits.com"
 EMAIL_HOST_PASSWORD = "Penenayger5"
 EMAIL_PORT = 465
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = "info@studiobrits.com"
