@@ -1,5 +1,14 @@
+{% include "header.html" %}
+
 {% for i in object_list %}
 
-{{ i }}
+    {{ i.titulo }}
+    {{ i.contenido|truncatechars:20 }}
+    {{ i.imagen }}
+    {{ i.publicado }}
+    {{ i.nombre_completo }}
+    {% for i in categorias.all %}{{ i }}{% endfor %}
 
 {% endfor %}
+
+{% include "footer.html" %}

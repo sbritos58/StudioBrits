@@ -1,18 +1,16 @@
-import email
-
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import JsonResponse
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.generic import DeleteView, CreateView, ListView, UpdateView, DetailView
-from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
-
-
 from Blog.forms import FormPost, FormCategoria, FormContactForm
 from Blog.models import Post, Categorias
 
 
+@method_decorator(login_required)
 class BorrarPost(DeleteView):
     model = Post
     success_url = reverse_lazy('ListarPosts')
@@ -24,6 +22,7 @@ class BorrarPost(DeleteView):
         return reverse_lazy('ListarPosts')
 
 
+@method_decorator(login_required)
 class CrearPost(SuccessMessageMixin, CreateView):
     template_name = "blog/crear.html"
     form_class = FormPost
@@ -38,11 +37,12 @@ class ListarPost(ListView):
     model = Post
 
 
+@method_decorator(login_required)
 class ActualizarPosts(UpdateView):
     success_message = '¡¡ Post actualizado correctamente !!'
     model = Post
     template_name = "blog/editar.html"
-    fields = ["titulo", "contenido", "imagen","publicado","autor","categorias"]
+    fields = ["titulo", "contenido", "imagen", "publicado", "autor", "categorias"]
 
     def get_success_url(self):
         return reverse_lazy('ListarPosts')
@@ -53,6 +53,7 @@ class DetallePost(DetailView):
     template_name = "blog/detalle.html"
 
 
+@method_decorator(login_required)
 class CrearCategoria(SuccessMessageMixin, CreateView):
     template_name = "blog/crearCategoria.html"
     form_class = FormCategoria
@@ -79,12 +80,12 @@ class CrearFormularioContacto(CreateView):
                 data["descripcion"] = request.POST["descripcion"]
                 data["email"] = request.POST["email"]
                 print("Entre en coso")
-                #envio de email
+                # envio de email
                 email = EmailMessage(
-                    "Gracias "+ data["nombre_completo"]+ " por contactar con StudioBrits",
+                    "Gracias " + data["nombre_completo"] + " por contactar con StudioBrits",
                     "Gracias por ponerse en contacto con StudioBrits, estamos procesando su solicitud " + '"' + data["descripcion"] + '"' + ", en breve nos pondremos en contacto con usted. Gracias",
                     "info@studiobrits.com",
-                    [data["email"]],["info@studiobrits.com"],
+                    [data["email"]], ["info@studiobrits.com"],
                     reply_to=["info@studiobrits.com"]
                 )
                 try:
