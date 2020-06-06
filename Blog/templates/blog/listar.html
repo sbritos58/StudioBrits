@@ -19,7 +19,7 @@
                 {% for i in object_list %}
 
                     <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
+                        <img src="{% static "media/" i.imagen %}" class="card-img-top" alt="{{i.imagen}}">
                         <div class="card-body">
                             <h5 class="card-title">{{ i.titulo }}</h5>
                             <p class="card-text">{{ i.contenido|truncatechars:20 }}</p><br>
