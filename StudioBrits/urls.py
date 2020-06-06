@@ -18,7 +18,7 @@ from django.urls import path, include
 from Blog.views import CrearFormularioContacto
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('administradores0808/', admin.site.urls),
     path('', include("Blog.urls")),
     path('', CrearFormularioContacto.as_view(), name="index"),
 ]
