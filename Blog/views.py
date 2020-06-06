@@ -59,7 +59,7 @@ class CrearCategoria(SuccessMessageMixin, CreateView):
 
 class CrearFormularioContacto(CreateView):
     form_class = FormContactForm
-    template_name = "base.html"
+    template_name = "index.html"
     success_message = '¡¡ Formulario enviado correctamente !!'
 
     def get_success_url(self):
