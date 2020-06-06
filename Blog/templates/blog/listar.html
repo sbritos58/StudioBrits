@@ -1,6 +1,6 @@
 {% load  static %}
 {% load widget_tweaks %}
-{% include "../templates/header.html" %}
+{% include "header.html" %}
 
 {% for i in object_list %}
 
@@ -12,8 +12,8 @@
     {% for i in categorias.all %}{{ i }}{% endfor %}
 
     <br>
-    Siamo noi
 
 {% endfor %}
+    Siamo noi
 
-{% include "../templates/footer.html" %}
+{% include "footer.html" %}
