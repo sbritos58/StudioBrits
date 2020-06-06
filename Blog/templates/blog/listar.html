@@ -2,24 +2,28 @@
 {% load  static %}
 {% load widget_tweaks %}
 {% block content %}
-<section id="hero" class="d-flex align-items-center justify-content-center">
-    <div class="container" data-aos="fade-up">
-    </div>
-</section><!-- End Hero -->
-    {% if object_list %}
-{% for i in object_list %}
+    {% if not object_list %}
 
-    {{ i.titulo }}
-    {{ i.contenido|truncatechars:20 }}
-    {{ i.imagen }}
-    {{ i.publicado }}
-    {{ i.nombre_completo }}
-    {% for i in categorias.all %}{{ i }}{% endfor %}
+        <section id="hero" class="d-flex align-items-center justify-content-center">
+            <div class="container" data-aos="fade-up">
+                <h1>No existen entradas en el blog</h1>
+                <button onclick="javascript:history.back(-1)" class="btn btn-secondary"> Volver</button>
 
+            </div>
 
-{% endfor %}
-        {% else %}
-        <h1>No existen entradas en el blog</h1>
-        <button onclick="javascript:history.back(-1)" class="btn btn-secondary"> Volver</button>
+        </section><!-- End Hero -->
+    {% else %}
+
+        {% for i in object_list %}
+
+            {{ i.titulo }}
+            {{ i.contenido|truncatechars:20 }}
+            {{ i.imagen }}
+            {{ i.publicado }}
+            {{ i.nombre_completo }}
+            {% for i in categorias.all %}{{ i }}{% endfor %}
+
+        {% endfor %}
     {% endif %}
+
 {% endblock %}
