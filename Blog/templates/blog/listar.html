@@ -3,6 +3,7 @@
 {% load widget_tweaks %}
 {% block content %}
 
+    {% if object_list %}
 {% for i in object_list %}
 
     {{ i.titulo }}
@@ -12,9 +13,10 @@
     {{ i.nombre_completo }}
     {% for i in categorias.all %}{{ i }}{% endfor %}
 
-    <br>
 
 {% endfor %}
-    Siamo noi
-
+        {% else %}
+        <h1>No existen entradas en el blog</h1>
+        <button onclick="javascript:history.back(-1)" class="btn btn-secondary"> Volver</button>
+    {% endif %}
 {% endblock %}
