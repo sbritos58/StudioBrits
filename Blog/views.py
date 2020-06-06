@@ -1,16 +1,13 @@
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import JsonResponse
 from django.urls import reverse_lazy
-from django.utils.decorators import method_decorator
 from django.views.generic import DeleteView, CreateView, ListView, UpdateView, DetailView
 from django.core.mail import EmailMessage
 from Blog.forms import FormPost, FormCategoria, FormContactForm
 from Blog.models import Post, Categorias
 
 
-@method_decorator(login_required)
 class BorrarPost(DeleteView):
     model = Post
     success_url = reverse_lazy('ListarPosts')
@@ -22,7 +19,6 @@ class BorrarPost(DeleteView):
         return reverse_lazy('ListarPosts')
 
 
-@method_decorator(login_required)
 class CrearPost(SuccessMessageMixin, CreateView):
     template_name = "blog/crear.html"
     form_class = FormPost
@@ -37,7 +33,6 @@ class ListarPost(ListView):
     model = Post
 
 
-@method_decorator(login_required)
 class ActualizarPosts(UpdateView):
     success_message = '¡¡ Post actualizado correctamente !!'
     model = Post
@@ -53,7 +48,6 @@ class DetallePost(DetailView):
     template_name = "blog/detalle.html"
 
 
-@method_decorator(login_required)
 class CrearCategoria(SuccessMessageMixin, CreateView):
     template_name = "blog/crearCategoria.html"
     form_class = FormCategoria
