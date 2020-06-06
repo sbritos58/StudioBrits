@@ -22,7 +22,7 @@ class Categorias(models.Model):
 class Post(models.Model):
     titulo = models.CharField(max_length=150, verbose_name="Título")
     contenido = models.TextField(verbose_name="Contenido")
-    imagen = models.ImageField(upload_to="Post", verbose_name="Imagen", blank=True, null=True)
+    imagen = models.ImageField(upload_to="media/Post", verbose_name="Imagen", blank=True, null=True)
     publicado = models.DateTimeField(verbose_name="Fecha de publicación", default=now)
     autor = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Autor")
     categorias = models.ManyToManyField(Categorias, verbose_name="Categorias")
