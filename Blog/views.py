@@ -88,10 +88,7 @@ class CrearFormularioContacto(CreateView):
                     reply_to=["info@studiobrits.com"]
                 )
                 try:
-                    print("Entre arriba del todo try")
                     email.send()
-                    print("Envie el email creo")
-                    print(email)
                 except Exception as e:
                     print("Entre en el except")
                     print(e)
