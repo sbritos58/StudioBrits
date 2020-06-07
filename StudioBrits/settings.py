@@ -25,7 +25,7 @@ SECRET_KEY = 'yeun=o3@4=4r&m+frc3&%1+6^!s&ct*1%5i+^d@k&lv@1p_*q_'
 
 ALLOWED_HOSTS = ["*"]
 
-DEBUG = False
+DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'StudioBrits.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR,'templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -123,9 +123,9 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/static')
 
-STATICFILES_DIRS = (BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 
 STATIC_MEDIA = 'static/media/'
 
