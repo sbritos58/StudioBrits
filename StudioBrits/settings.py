@@ -55,7 +55,7 @@ ROOT_URLCONF = 'StudioBrits.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -75,14 +75,12 @@ WSGI_APPLICATION = 'StudioBrits.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd234bqktkllc4a',
-        'USER': 'wzeohjwzjddpoe',
-        'PASSWORD': 'bbe16be0ff6dbdb3c52f086d3361c0c6f49c9f0e22ed0680c3e3103d34b24c40',
-        'HOST': "ec2-50-17-90-177.compute-1.amazonaws.com",
-        'PORT': 5432,
-    }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+
 }
 
 # Password validation
@@ -121,9 +119,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/static')]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 
