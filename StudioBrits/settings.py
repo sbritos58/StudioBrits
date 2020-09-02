@@ -78,11 +78,11 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd234bqktkllc4a',
-        'USER': 'wzeohjwzjddpoe',
-        'PASSWORD': 'bbe16be0ff6dbdb3c52f086d3361c0c6f49c9f0e22ed0680c3e3103d34b24c40',
-        'HOST': "ec2-50-17-90-177.compute-1.amazonaws.com",
-        'PORT': 5432,
+        'NAME': '***************',
+        'USER': '*****************',
+        'PASSWORD': '*************************',
+        'HOST': "*******",
+        'PORT': ****,
     }
 }
 #ahi deberia
@@ -132,9 +132,9 @@ STATIC_MEDIA = 'static/media/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_HOST = 'authsmtp.securemail.pro'
-EMAIL_HOST_USER = 'info@studiobrits.com'
-EMAIL_HOST_PASSWORD = 'Penenayger5'
-EMAIL_PORT = 465
+EMAIL_HOST = '*************************'
+EMAIL_HOST_USER = '**************************'
+EMAIL_HOST_PASSWORD = '********************************'
+EMAIL_PORT = *******************
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
